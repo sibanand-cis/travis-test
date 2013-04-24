@@ -2,16 +2,3 @@
 language: ruby
 rvm:
 - 1.9.3
-after_success:
-- wget -qO- https://toolbelt.heroku.com/install-ubuntu.sh | sh
-- git remote add heroku git@heroku.com:obscure-plains-8681.git
-- echo "Host heroku.com" >> ~/.ssh/config
-- echo "   StrictHostKeyChecking no" >> ~/.ssh/config
-- echo "   CheckHostIP no" >> ~/.ssh/config
-- echo "   UserKnownHostsFile=/dev/null" >> ~/.ssh/config
-- heroku keys:clear
-- yes | heroku keys:add
-- yes | git push heroku master
-env:
-  global:
-  - secure: ! 'MRchfrZubAYq1DQ6sQRLDQqejD3siGq0WiCmAhLUqzBbH2EQG69DBtuhCYZP1pEih1jDaUGw0vPLJwYtiqpn/4QSaoB6ILgH6EOpmPPm5Hhpak1PDRBv6o4o5ielTgC1CuOaNo3LjUIE1fWziAzrJOFN/GJxN2nXqyAocpWjPyw='
