@@ -2,7 +2,7 @@
 language: ruby
 rvm:
 - 1.9.3
-after_script:
+after_success:
 - wget -qO- https://toolbelt.heroku.com/install-ubuntu.sh | sh
 - git remote add heroku git@heroku.com:obscure-plains-8681.git
 - echo "Host heroku.com" >> ~/.ssh/config
