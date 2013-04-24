@@ -1,14 +1,15 @@
----
 language: ruby
 rvm:
 - 1.9.3
+ 
+#after_install:
+# I had to move all the steps into the after_script to get them called
+ 
 after_script:
 - gem install heroku
 - git remote add heroku git@heroku.com:obscure-plains-8681.git
+- export HEROKU_API_KEY= e4ecddc4-4a11-4c95-bcd3-62d1d962e8f7 # you probably want to encrypt this key using the travis gem and "travis encryp" cmd
 - yes | ruby travis_deployer.rb
 - heroku keys:clear
 - yes | heroku keys:add
-- git push heroku master
-env:
-  global:
-  - secure: ! 'bssjutolAlN3EgSATuTjCI9X90aOxe4jpte2RjHWkH4JWiXKnZsyuTdcDwlgHLLhJ7b3gG8iinCxKgnITw+feVIlG8Zzs72VMRLHjGgs9JetHqex/Z7kKmwSBNyhQ4FUJuoYTaNRDn+mwP/6RnJtOPyEUNpw5rq2kvlDggpbnWo='
+- git push heroku master # or whatever your heroku push looks like

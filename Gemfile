@@ -37,3 +37,6 @@ gem 'jquery-rails'
 # To use debugger
 # gem 'debugger'
 gem 'pg',:group => 'production'
+group :test, :development do
+  gem "rspec-rails", "~> 2.0"
+end
